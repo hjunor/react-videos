@@ -1,50 +1,141 @@
-import React , {useState, useContext}from 'react'
-import {videoStore} from '../data/video/VideoContext';
+import React, { useState, useContext } from "react";
+import { videoStore } from "../data/video/VideoContext";
 
 export default function NewVideoForm() {
-    const [, videoDispatch] = useContext(videoStore);
-    const [title, setTitle] = useState('');
-    const [duration, setDuration] = useState('');
-    const [url, setUrl] = useState('');
-    const [cover, setCover] = useState('');
-    function save(){
-        const newVideo ={
-            title, 
-            duration,
-            url,
-            cover
-        };
-        videoDispatch({
-            type:'add',
-            value: newVideo,
-        })
-        reset();
-        console.log(newVideo)
-    }
-    function reset(){
-        setTitle('');
-        setDuration('');
-        setUrl('');
-        setCover('');
-    }
-    return (
-        <div className="form">
-         <label>Titulo:</label>
-         <input type="text" value={title}  onChange={(e)=>{ setTitle(e.target.value)}}/>
+  const [, videoDispatch] = useContext(videoStore);
+  const [title, setTitle] = useState("");
+  const [duration, setDuration] = useState("");
+  const [url, setUrl] = useState("");
+  const [description, setDescription] = useState("");
+  const [author, setAuthor] = useState("");
+  const [tags, setTags] = useState("");
+  const [peoples, setPeoples] = useState("");
+  const [visualization, setVisualization] = useState("");
+  const [date, setDate] = useState("");
+  const [gender, setGender] = useState("");
 
-         <label>Duracão:</label>
-         <input type="text" value={duration}  onChange={(e)=>{ setDuration(e.target.value)}}/>
+  const coverId = url.replace("https://www.youtube.com/watch?v=", "");
 
-         <label>Vídeo:</label>
-         <input type="text" value={url}  onChange={(e)=>{ setUrl(e.target.value)}}/>
+  function save() {
+    const newVideo = {
+      title,
+      duration,
+      url: url.replace("watch?v=", "embed/"),
+      cover: `https://img.youtube.com/vi/${coverId}/0.jpg`,
+      description,
+      author,
+      tags: tags.split(","),
+      peoples,
+      visualization,
+      date,
+      gender,
+    };
+    videoDispatch({
+      type: "add",
+      value: newVideo,
+    });
 
-         <label>Capa:</label>
-         <input type="text" value={cover}  onChange={(e)=>{ setCover(e.target.value)}}/>
+    resetValues();
+  }
+  function resetValues() {
+    setTitle("");
+    setDuration("");
+    setUrl("");
+    setAuthor("");
+    setDate("");
+    setDescription("");
+    setGender("");
+    setPeoples("");
+    setTags("");
+    setVisualization("");
+  }
+  return (
+    <div className="form">
+      <label>Titulo:</label>
+      <input
+        type="text"
+        value={title}
+        onChange={(e) => {
+          setTitle(e.target.value);
+        }}
+      />
+      <label>Autor:</label>
+      <input
+        type="text"
+        value={author}
+        onChange={(e) => {
+          setAuthor(e.target.value);
+        }}
+      />
 
-         <button onClick={save}>ok</button>
-         
-        </div>
+      <label>Duração:</label>
+      <input
+        type="text"
+        value={duration}
+        onChange={(e) => {
+          setDuration(e.target.value);
+        }}
+      />
 
-        
-    )
+      <label>Link:</label>
+      <input
+        type="text"
+        value={url}
+        onChange={(e) => {
+          setUrl(e.target.value);
+        }}
+      />
+      <label>Tags:</label>
+      <input
+        type="text"
+        value={tags}
+        onChange={(e) => {
+          setTags(e.target.value);
+        }}
+      />
+
+      <label>Inscritos:</label>
+      <input
+        type="text"
+        value={peoples}
+        onChange={(e) => {
+          setPeoples(e.target.value);
+        }}
+      />
+      <label>Visualizações:</label>
+      <input
+        type="text"
+        value={visualization}
+        onChange={(e) => {
+          setVisualization(e.target.value);
+        }}
+      />
+      <label>Data:</label>
+      <input
+        type="date"
+        value={date}
+        onChange={(e) => {
+          setDate(e.target.value);
+        }}
+      />
+      <label>Gênero:</label>
+      <input
+        type="text"
+        value={gender}
+        onChange={(e) => {
+          setGender(e.target.value);
+        }}
+      />
+      <label>Descrição:</label>
+      <input
+        type="text"
+        value={description}
+        onChange={(e) => {
+          setDescription(e.target.value);
+        }}
+      />
+
+      <button onClick={save}>ok</button>
+    </div>
+  );
 }

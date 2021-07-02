@@ -1,46 +1,43 @@
-body{
-  background-color: #f2f2f2;
-  font-family: 'Fira Code', monospace;
+body {
+  background-color: #c6c6c6;
+  font-family: "Fira Code", monospace;
 }
-.App{
+.App {
   display: grid;
-  grid-template-columns: 1fr 354px;
+  grid-template-columns: 1fr 150px;
   grid-template-rows: repeat(2, auto);
-  grid-template-areas: 
-  "video form" 
-  "list list";
+  grid-template-areas:
+    "video form"
+    "list list";
   grid-gap: 32px;
   padding: 16px;
 }
-.form{
+.form {
   display: grid;
   padding: 16px;
-  grid-template-columns: 70px 1fr;
+  grid-template-columns: 125px 1fr;
   grid-gap: 16px;
   grid-area: form;
   align-items: center;
-  width: 320px;
+  width: 50rem;
+  height: 36rem;
   border: 1px solid #eee;
   box-sizing: border-box;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
   justify-self: end;
   align-self: flex-start;
   background-color: #f5f5f5;
+  border-radius: 16px;
+  padding: 2rem 2rem;
 }
-.video-player{
-  grid-area: video;
-  width: 100%;
-  background: #111;
-  color: white;
-  font-family: 'Fira Code', monospace;
-}
-video{
+
+video {
   display: block;
   width: 100%;
   max-width: 700px;
   margin: 0 auto;
 }
-.controls{
+.controls {
   display: grid;
   grid-template-columns: auto auto 1fr;
   grid-gap: 16px;
@@ -48,17 +45,17 @@ video{
   background-color: #333;
   padding: 4px 8px;
 }
-input[type=range]{
+input[type="range"] {
   padding: 0;
 }
-.video-player h2{
+.video-player h2 {
   padding: 0;
   margin: 0;
   color: #333;
   background-color: #f2f2f2;
   font-size: 32px;
 }
-.list{
+.list {
   position: relative;
   display: grid;
   grid-template-columns: repeat(auto-fit, 320px);
@@ -68,19 +65,12 @@ input[type=range]{
   margin: 0;
   padding: 0;
 }
-.list li{
-  position: relative;
-  cursor: pointer;
+
+.list li:hover {
+  opacity: 0.8;
 }
-.list li:hover{
-  opacity: .8;
-}
-.list li img{
-  width: 320px;
-  height: 180px;
-  border-radius: 8px;
-}
-.list li span{
+
+.list li span {
   position: absolute;
   background: rgb(255, 255, 255);
   color: rgb(0, 0, 0);
@@ -91,12 +81,12 @@ input[type=range]{
   border-radius: 6px;
   font-weight: 600;
 }
-.list li h2{
+.list li h2 {
   margin: 0;
   font-size: 18px;
 }
 
-button{
+button {
   background-color: #482fb8;
   color: white;
   border-radius: 3px;
@@ -104,14 +94,17 @@ button{
   padding: 8px 16px;
   cursor: pointer;
   font-weight: bold;
-  
 }
-.btn{
+.btn {
   width: 4vh;
   height: 4vh;
 }
-input{
+input {
   border-radius: 3px;
   padding: 8px;
   border: 1px solid #ccc;
+}
+
+li {
+  list-style: none;
 }
