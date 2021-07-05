@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import Video from "./Video";
 import styles from "./styles.module.scss";
-
+import { AiOutlineDelete } from "react-icons/ai";
 import { videoStore } from "../data/video/VideoContext";
 
 export default function VideoList() {
@@ -17,17 +17,24 @@ export default function VideoList() {
     <ul className={styles.list}>
       {videoState.videos.map((item) => (
         <>
-          <Video key={item.url} onClick={onClick} video={item} />
-          <button
-            onClick={(e) => {
-              videoDispatch({
-                type: "remove",
-                value: item,
-              });
-            }}
+          <Video
+            className={styles.videoList}
+            key={item.url}
+            onClick={onClick}
+            video={item}
           >
-            remove
-          </button>
+            <button
+              className={styles.removeButton}
+              onClick={(e) => {
+                videoDispatch({
+                  type: "remove",
+                  value: item,
+                });
+              }}
+            >
+              <AiOutlineDelete size="24" />
+            </button>
+          </Video>
         </>
       ))}
     </ul>

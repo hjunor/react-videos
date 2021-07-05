@@ -6,7 +6,6 @@
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
 
   margin: 0 0 2rem 2rem;
-  cursor: pointer;
   position: relative;
 
   span:nth-child(1) {
@@ -90,4 +89,28 @@
 .description {
   padding: 0 1rem 0 1rem;
   text-align: center;
+}
+
+.removeButton {
+  background-color: red;
+  margin-top: 0.4rem;
+  margin-left: 2.5rem;
+  border-radius: 1rem;
+}
+
+.play {
+  color: rebeccapurple;
+  padding: 10px;
+}
+
+.container {
+  li {
+    div {
+      button:nth-child(1) {
+        background: blueviolet;
+        padding: 1rem;
+        border-radius: 1rem;
+      }
+    }
+  }
 }

@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { videoStore } from "../data/video/VideoContext";
 
-export default function NewVideoForm() {
+export default function NewVideoForm({ setVideoList, videoList }) {
   const [, videoDispatch] = useContext(videoStore);
   const [title, setTitle] = useState("");
   const [duration, setDuration] = useState("");
@@ -16,7 +16,7 @@ export default function NewVideoForm() {
 
   const coverId = url.replace("https://www.youtube.com/watch?v=", "");
 
-  function save() {
+  function handleAddVideo() {
     const newVideo = {
       title,
       duration,
@@ -35,9 +35,9 @@ export default function NewVideoForm() {
       value: newVideo,
     });
 
-    resetValues();
+    handleResetValues();
   }
-  function resetValues() {
+  function handleResetValues() {
     setTitle("");
     setDuration("");
     setUrl("");
@@ -48,6 +48,10 @@ export default function NewVideoForm() {
     setPeoples("");
     setTags("");
     setVisualization("");
+  }
+
+  function handleVideoList() {
+    setVideoList(!videoList);
   }
   return (
     <div className="form">
@@ -134,8 +138,23 @@ export default function NewVideoForm() {
           setDescription(e.target.value);
         }}
       />
-
-      <button onClick={save}>ok</button>
+      {title &&
+      duration &&
+      url &&
+      description &&
+      author &&
+      tags &&
+      peoples &&
+      visualization &&
+      date &&
+      gender ? (
+        <button onClick={handleAddVideo}>ok</button>
+      ) : (
+        <button disabled style={{ opacity: 0.5 }}>
+          ok
+        </button>
+      )}
+      <button onClick={handleVideoList}>Listar</button>
     </div>
   );
 }

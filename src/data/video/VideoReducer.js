@@ -8,7 +8,7 @@ export const videoInitialState = {
 export function videoReducer(state, action) {
   switch (action.type) {
     case "add":
-      const newList = [...state.videos, action.value];
+      const newList = [action.value, ...state.videos];
       StorageService.set("videoList", newList);
       return { ...state, videos: newList };
     case "select":
