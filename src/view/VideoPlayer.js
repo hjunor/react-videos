@@ -15,7 +15,7 @@ export default function VideoPlayer() {
         src={video.url}
         title="YouTube video player"
         frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allow="accelerometer;picture-in-picture"
         allowfullscreen
         ref={videoRef}
       ></iframe>

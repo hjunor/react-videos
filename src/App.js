@@ -8,7 +8,6 @@ import "./global.scss";
 
 function App() {
   const [videoList, setVideoList] = useState(false);
-  console.log(videoList);
   return (
     <div className="App">
       <VideoContext>

@@ -148,13 +148,15 @@ export default function NewVideoForm({ setVideoList, videoList }) {
       visualization &&
       date &&
       gender ? (
-        <button onClick={handleAddVideo}>ok</button>
+        <button onClick={handleAddVideo}>Adicionar</button>
       ) : (
-        <button disabled style={{ opacity: 0.5 }}>
-          ok
+        <button disabled style={{ opacity: 0.5, cursor: "not-allowed" }}>
+          Adicionar
         </button>
       )}
-      <button onClick={handleVideoList}>Listar</button>
+      <button onClick={handleVideoList}>
+        {videoList ? "Ocultar" : "Listar"}
+      </button>
     </div>
   );
 }
