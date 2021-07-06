@@ -3,7 +3,7 @@ import styles from "./styles.module.scss";
 import ptBR from "date-fns/locale/pt-BR";
 import format from "date-fns/format";
 
-export default function Video({ video, onClick, children }) {
+const Video = ({ video, onClick, children }) => {
   const currentDate = format(Date.parse(video.date), "d MMM yyyy", {
     locale: ptBR,
   });
@@ -37,4 +37,6 @@ export default function Video({ video, onClick, children }) {
       </li>
     </div>
   );
-}
+};
+
+export default Video;

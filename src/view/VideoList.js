@@ -4,7 +4,7 @@ import styles from "./styles.module.scss";
 import { AiOutlineDelete } from "react-icons/ai";
 import { videoStore } from "../data/video/VideoContext";
 
-export default function VideoList() {
+const VideoList = () => {
   const [videoState, videoDispatch] = useContext(videoStore);
   function onClick(video) {
     videoDispatch({
@@ -39,4 +39,6 @@ export default function VideoList() {
       ))}
     </ul>
   );
-}
+};
+
+export default VideoList;

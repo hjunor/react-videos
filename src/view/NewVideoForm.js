@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { videoStore } from "../data/video/VideoContext";
 
-export default function NewVideoForm({ setVideoList, videoList }) {
+const NewVideoForm = ({ setVideoList, videoList }) => {
   const [, videoDispatch] = useContext(videoStore);
   const [title, setTitle] = useState("");
   const [duration, setDuration] = useState("");
@@ -159,4 +159,6 @@ export default function NewVideoForm({ setVideoList, videoList }) {
       </button>
     </div>
   );
-}
+};
+
+export default NewVideoForm;
