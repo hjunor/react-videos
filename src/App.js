@@ -1,21 +1,20 @@
-import React, { useState } from "react";
-import VideoList from "./view/VideoList";
-import NewVideoForm from "./view/NewVideoForm";
-import VideoPlayer from "./view/VideoPlayer";
+import React from "react";
+import { VideoList } from "./view/VideoList";
+import { NewVideoForm } from "./view/NewVideoForm";
+import { VideoPlayer } from "./view/VideoPlayer";
 import { VideoContext } from "./data/video/VideoContext";
 
 import "./global.scss";
 
 function App() {
-  const [videoList, setVideoList] = useState(false);
   return (
-    <div className="App">
+    <section>
       <VideoContext>
         <VideoPlayer />
-        <NewVideoForm setVideoList={setVideoList} videoList={videoList} />
-        {videoList ? <VideoList /> : ""}
+        <NewVideoForm />
+        <VideoList />
       </VideoContext>
-    </div>
+    </section>
   );
 }
 
